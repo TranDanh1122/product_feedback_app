@@ -1,6 +1,8 @@
 import React from "react";
 import { CustomTrigger } from "./SidebarComponent";
 const Header = React.memo(React.forwardRef<HTMLDivElement, { onToggle: () => void }>((props, ref) => {
+    console.log("header");
+    
     const { onToggle } = props;
     return (
         <div ref={ref} className="h-fit w-full custom_gradient flex justify-between items-center py-4 px-6">

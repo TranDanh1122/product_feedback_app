@@ -7,7 +7,6 @@ export const useResize = () => {
         if (header.current && sidebarContent.current && sidebarContent.current) {
             const headerHeight = header.current.getBoundingClientRect().height
             const dialog = sidebarContent.current.closest("[role='dialog']");
-            console.log(sidebarContent.current, dialog);
             if (dialog && dialog instanceof HTMLElement) {
                 dialog.style.width = "100%"
                 dialog.style.marginTop = `${headerHeight}px`

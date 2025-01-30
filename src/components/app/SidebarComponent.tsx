@@ -6,6 +6,8 @@ import Category from "./Category";
 import { NavLink } from "react-router"
 
 export const CustomTrigger = React.memo(({ onToggle }: { onToggle: () => void }): React.JSX.Element => {
+    console.log("trigger");
+    
     const { openMobile } = useSidebar()
     return <>
         <button onClick={onToggle} className="text-white font-bold cursor-pointer"><i className="w-4 h-4  bg-white block"
@@ -20,6 +22,8 @@ const SidebarComponent = React.memo(
         sidebarWrap: RefObject<HTMLDivElement>,
         sidebarContent: RefObject<HTMLDivElement>,
     }): React.JSX.Element => {
+        console.log("side");
+        
         return <>
             <Sidebar ref={sidebarWrap} side="right" variant="sidebar"
                 style={{
