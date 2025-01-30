@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button"
 import iconCheck from "../../assets/shared/icon-check.svg"
 const Toolbar = React.memo(forwardRef<HTMLDivElement>((props, ref): React.JSX.Element => {
 
-    return <div className="bg-[#373F68] py-2 px-6 flex justify-between items-center">
+    return <div ref={ref} className="bg-[#373F68] py-2 px-6 flex justify-between items-center">
         <Select />
         <button className="text-[0.75rem] font-bold text-[var(--light-gray)] bg-[var(--primary-purple)] px-4 py-3 rounded-xl">+ Add Feedback</button>
     </div>
