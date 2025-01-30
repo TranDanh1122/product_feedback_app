@@ -1,6 +1,7 @@
 import React from "react"
 import { HashRouter, Route, Routes } from "react-router"
 import Home from "./pages/Home"
+import { SidebarProvider } from "./components/ui/sidebar"
 
 function App() {
 
@@ -8,7 +9,10 @@ function App() {
     <>
       <HashRouter>
         <Routes>
-          <Route path="/" index element={<Home />}></Route>
+          <Route path="/" index element={
+            <SidebarProvider>
+              <Home />
+            </SidebarProvider>}></Route>
         </Routes>
       </HashRouter>
 

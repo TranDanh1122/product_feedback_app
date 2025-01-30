@@ -1,16 +1,31 @@
-import React from "react";
-import { Sidebar, SidebarContent } from "@/components/ui/sidebar"
-
-const SidebarComponent = (): React.JSX.Element => {
+import React, { RefObject } from "react";
+import { Sidebar, SidebarContent, useSidebar } from "@/components/ui/sidebar"
+import iconClose from "../../assets/shared/mobile/icon-close.svg"
+import iconHamburger from "../../assets/shared/mobile/icon-hamburger.svg"
+export const CustomTrigger = React.memo(({ onToggle }: { onToggle: () => void }): React.JSX.Element => {
+    const { openMobile } = useSidebar()    
     return <>
-        <div className="h-fit w-full ">
-            1243
-        </div>
-        <Sidebar side="right" variant="sidebar" collapsible="offcanvas" className=' h-full w-full bg-transparent '>
-
-            <SidebarContent >11123</SidebarContent>
-        </Sidebar>
+        <button onClick={onToggle} className="text-white font-bold cursor-pointer"><i className="w-4 h-4  bg-white block"
+            style={{
+                mask: `url("${openMobile ? iconClose : iconHamburger}") center / cover no-repeat`,
+                WebkitMask: `url("${openMobile ? iconClose : iconHamburger}") center / cover no-repeat`
+            }}></i></button>
     </>
-}
+})
+const SidebarComponent = React.memo(
+    ({ sidebarWrap, sidebarContent }: {
+        sidebarWrap: RefObject<HTMLDivElement>,
+        sidebarContent: RefObject<HTMLDivElement>,
+    }): React.JSX.Element => {
+        return <>
+            <Sidebar ref={sidebarWrap} side="right" variant="sidebar"
+                style={{
+                    width: "100%",
+                } as React.CSSProperties}
+                className=' h-full w-full bg-black/50' >
+                <SidebarContent ref={sidebarContent} className="w-2/3 bg-[var(--soft-blue)] ml-auto" >11123</SidebarContent>
+            </Sidebar>
+        </>
+    })
 SidebarComponent.displayName = "Sidebar"
 export default SidebarComponent
